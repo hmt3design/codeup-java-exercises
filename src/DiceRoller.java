@@ -6,14 +6,12 @@ import java.util.Scanner;
 public class DiceRoller {
     public static void main(String[] args) {
         System.out.println("Dice Roller App");
-
         playGame();
-
-
     }
 
     public static void playGame() {
         boolean playAgain = false;
+        String userChoice;
         Scanner scan = new Scanner(System.in);
         do {
             int numberOfSides = getNumberOfSides();
@@ -23,7 +21,8 @@ public class DiceRoller {
             int die2 = rollDie(numberOfSides);
             System.out.println("You rolled a " + die1 + " and a " + die2 + ", which totals " + (die1 + die2));
             System.out.println("Do you want to roll again?");
-            if (scan.nextLine().equalsIgnoreCase("yes") || scan.nextLine().equalsIgnoreCase("y")) {
+            userChoice = scan.nextLine();
+            if ((userChoice.equalsIgnoreCase("yes")) || (userChoice.equalsIgnoreCase("y"))) {
                 playAgain = true;
             }
         } while(playAgain);
