@@ -2,9 +2,9 @@
  * Created by Harry on 1/9/17.
  */
 public class Students {
-    private String firstName;
-    private String lastName;
-    private int age;
+    public String firstName;
+    public String lastName;
+    public int age;
 
     //Constructor function
     public Students(String firstName, String lastName, int age) {
@@ -13,9 +13,7 @@ public class Students {
         this.age = age;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+    public String getFirstName() { return firstName; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

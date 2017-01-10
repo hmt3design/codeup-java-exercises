@@ -6,12 +6,4 @@ public class Validator {
     double getDouble;
     String getRequiredString;
 
-
-
-    //Constructor function
-    public Students(String firstName, String lastName, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
 }
