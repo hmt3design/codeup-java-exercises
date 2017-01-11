@@ -1,32 +1,44 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 /**
  * Created by Harry on 1/9/17.
  */
 public class Validator {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+
+    private Scanner scan;
+
+    public Validator(Scanner scan) {
+        this.scan = scan;
     }
 
-    public int getInt(String prompt, Scanner scan) {
-        int userInteger;
+    public int getInt(String prompt) {
         System.out.print(prompt);
+        int userInt;
+
         try {
-            userInteger = scan.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("Please enter an integer.");
+            userInt = scan.nextInt();
+        } catch(InputMismatchException e) {
             scan.next();
-            return getInt(prompt, scan);
+            System.out.println("Input must be an integer");
+            return getInt(prompt);
         }
-        return userInteger;
+
+        return userInt;
     }
 
-//    public int getIntWithinRange(String prompt, int min, int max) {
-//        int userInteger;
-//        System.out.print(prompt);
-//
-//    }
-}
+    public int getIntWithinRange(String prompt, int min, int max) {
+        int userInt = getInt(prompt);
 
+        try {
+            if(userInt < min || userInt > max) {
+                throw new IllegalArgumentException("Your input must be an integer between " + min + " and " + max);
+            }
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getIntWithinRange(prompt, min, max);
+        }
+
+        return userInt;
+    }
+}
