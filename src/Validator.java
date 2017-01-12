@@ -18,7 +18,7 @@ public class Validator {
 
         try {
             userInt = scan.nextInt();
-        } catch(InputMismatchException e) {
+        } catch (InputMismatchException e) {
             scan.next();
             System.out.println("Input must be an integer");
             return getInt(prompt);
@@ -31,14 +31,26 @@ public class Validator {
         int userInt = getInt(prompt);
 
         try {
-            if(userInt < min || userInt > max) {
+            if (userInt < min || userInt > max) {
                 throw new IllegalArgumentException("Your input must be an integer between " + min + " and " + max);
             }
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return getIntWithinRange(prompt, min, max);
         }
 
         return userInt;
+    }
+
+    public static void playAgain() {
+        boolean playAgain = false;
+        String userChoice;
+        Scanner scan = new Scanner(System.in);
+        userChoice = scan.nextLine();
+        if ((userChoice.equalsIgnoreCase("yes")) || (userChoice.equalsIgnoreCase("y"))) {
+            playAgain = true;
+        } else if ((userChoice.equalsIgnoreCase("no")) || (userChoice.equalsIgnoreCase("n"))) {
+            playAgain = false;
+        }
     }
 }

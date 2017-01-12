@@ -13,16 +13,25 @@ public class BattingStats {
         System.out.println("Batting Stats generator");
         System.out.println("Please enter the player's name: ");
         batter.playerName = scan.nextLine();
-        System.out.println("Please enter the number of at-bats: ");
-        batter.timesAtBat = scan.nextInt();
 
-//        int[] playerStatBases = new int[batter.timesAtBat];
-//        for (int i=0; i<=playerStatBases.length; i++) {
-//            System.out.println("Please enter the number of bases earned by the player (0, 1, 2, 3, or 4): ");
-//            statBases = scan.nextInt(i);
-//        }
-//        System.out.println(playerName + " has " + statAtBat + " at-bats, with a ");
+        batter.timesAtBat = validator.getInt("Please enter the number of at-bats: ");
 
+        batter.arrayOfAtBats = new int[batter.timesAtBat];
+
+        for (int i = 0; i < batter.arrayOfAtBats.length; i++) {
+            batter.arrayOfAtBats[i] = validator.getIntWithinRange("How many bases attained: ", 0, 4);
+
+            if (batter.arrayOfAtBats[i] > 0) {
+                batter.numberHitsOneBase++;
+            }
+
+            batter.totalBases += batter.arrayOfAtBats[i];
+        }
+
+        System.out.println(batter.playerName + " has a batting average of " + batter.getBattingAverage() + " and a slugging percentage of " + batter.getSluggingPercentage() + ".");
+
+        System.out.println("Would you like to enter another player?");
 
     }
+
 }
