@@ -42,15 +42,31 @@ public class Validator {
         return userInt;
     }
 
-    public static void playAgain() {
+    public static boolean playerAgain() {
+        System.out.println("Would you like to enter another player?");
         boolean playAgain = false;
         String userChoice;
         Scanner scan = new Scanner(System.in);
         userChoice = scan.nextLine();
         if ((userChoice.equalsIgnoreCase("yes")) || (userChoice.equalsIgnoreCase("y"))) {
-            playAgain = true;
+            return true;
         } else if ((userChoice.equalsIgnoreCase("no")) || (userChoice.equalsIgnoreCase("n"))) {
-            playAgain = false;
+            return false;
         }
+        return playerAgain();
+    }
+
+    public static boolean playAgain() {
+        System.out.println("Would you like to play again?");
+        boolean playAgain = false;
+        String userChoice;
+        Scanner scan = new Scanner(System.in);
+        userChoice = scan.nextLine();
+        if ((userChoice.equalsIgnoreCase("yes")) || (userChoice.equalsIgnoreCase("y"))) {
+            return true;
+        } else if ((userChoice.equalsIgnoreCase("no")) || (userChoice.equalsIgnoreCase("n"))) {
+            return false;
+        }
+        return playAgain();
     }
 }

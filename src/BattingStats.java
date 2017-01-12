@@ -6,11 +6,14 @@ import java.util.Scanner;
  */
 public class BattingStats {
     public static void main(String[] args) {
+        System.out.println("Batting Stats generator");
+        enterBatStats();
+    }
+
+    public static void enterBatStats() {
         Scanner scan = new Scanner(System.in);
         Validator validator = new Validator(scan);
         Batter batter = new Batter();
-
-        System.out.println("Batting Stats generator");
         System.out.println("Please enter the player's name: ");
         batter.playerName = scan.nextLine();
 
@@ -29,9 +32,12 @@ public class BattingStats {
         }
 
         System.out.println(batter.playerName + " has a batting average of " + batter.getBattingAverage() + " and a slugging percentage of " + batter.getSluggingPercentage() + ".");
+        if (validator.playerAgain() == true) {
+            enterBatStats();
+        }
 
-        System.out.println("Would you like to enter another player?");
 
     }
+
 
 }
