@@ -8,7 +8,7 @@ public class ExceptionDemoInst {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Welcome to the Student Records App");
+        System.out.println("Welcome to the StudentScores Records App");
 
         System.out.println("Please input a new student: ");
 

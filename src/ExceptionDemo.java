@@ -6,7 +6,7 @@ import java.util.Scanner;
  */
 public class ExceptionDemo {
     public static void main(String[] args) {
-        System.out.println("Student database");
+        System.out.println("StudentScores database");
         String firstName;
         String lastName;
         int age = 0;

@@ -17,15 +17,15 @@ public class LetterGrades {
             grade = sc.nextInt();
 
             if (grade >= 88) {
-                message = "Student has recieved an A.";
+                message = "StudentScores has recieved an A.";
             } else if (grade >=80) {
-                message = "Student has recieved a B.";
+                message = "StudentScores has recieved a B.";
             } else if (grade >=67) {
-                message = "Student has recieved a C.";
+                message = "StudentScores has recieved a C.";
             } else if (grade >=60) {
-                message = "Student has recieved a D.";
+                message = "StudentScores has recieved a D.";
             } else {
-                message = "Student has recieved an F.";
+                message = "StudentScores has recieved an F.";
             }
 
             System.out.println(message);
