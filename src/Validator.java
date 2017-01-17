@@ -69,4 +69,18 @@ public class Validator {
         }
         return playAgain();
     }
+
+    public static boolean addAnother() {
+        System.out.println("Would you like to add another?");
+        boolean addAnother = false;
+        String userChoice;
+        Scanner scan = new Scanner(System.in);
+        userChoice = scan.nextLine();
+        if ((userChoice.equalsIgnoreCase("yes")) || (userChoice.equalsIgnoreCase("y"))) {
+            return true;
+        } else if ((userChoice.equalsIgnoreCase("no")) || (userChoice.equalsIgnoreCase("n"))) {
+            return false;
+        }
+        return addAnother();
+    }
 }
