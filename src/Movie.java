@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by Harry on 1/17/17.
@@ -28,21 +30,38 @@ public class Movie {
         this.category = category;
     }
 
+
+    // chained comparator that sorts by category, then title
+    public class CategoryTitleSort implements Comparator<Movie> {
+
+        public List<Comparator<Movie>> listComparators;
+
+        @SafeVarargs
+        public CategoryTitleSort(Comparator<Movie>... comparators) {
+            this.listComparators = Arrays.asList(comparators);
+        }
+
+        @Override
+        public int compare(Movie category1, Movie category2) {
+            for (Comparator<Movie> comparator : listComparators) {
+                int result = comparator.compare(category1, category2);
+                if (result != 0) {
+                    return result;
+                }
+            }
+            return 0;
+        }
+    }
+
+
     // Comparator for sorting the movie titles by name
-    public static Comparator<Movie> titleSort = new Comparator<Movie>() {
+    public static class TitleSort implements Comparator<Movie> {
+        @Override
         public int compare(Movie movie1, Movie movie2) {
-            String movieTitle1 = movie1.getTitle();
-            String movieTitle2 = movie2.getTitle();
-            return movieTitle1.compareTo(movieTitle2);
+            return movie1.getTitle().compareTo(movie2.getTitle());
         }
     };
 
-    // Comparator for sorting the movie categories by name
-    public static Comparator<Movie> categorySort = new Comparator<Movie>() {
-        public int compare(Movie category1, Movie category2) {
-            String genreCategory1 = category1.getCategory();
-            String genreCategory2 = category2.getCategory();
-            return genreCategory1.compareTo(genreCategory2);
-        }
-    };
+
+
 }

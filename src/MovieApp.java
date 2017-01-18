@@ -9,18 +9,26 @@ public class MovieApp {
         ArrayList<Movie> movieList = new ArrayList<Movie>();
 
         // assemble the arrayList of movieObjects
-        for (int i=1; i<=100; i++){
+        // add the external MovieIO.java file
+        for (int i = 1; i <= 100; i++) {
             movieList.add(MovieIO.getMovie(i));
         }
 
-        //output the titles of the movies
-        for (int i=0; i<= movieList.size(); i++) {
-            System.out.println(movieList.get(i).getTitle());
-        }
+//        Collections.sort(movieList, new Movie.CategoryTitleSort(new Movie.TitleSort()));
 
-        //enhanced for-loop to output the titles of all movies
-        for(Movie movie : movieList) {
-            System.out.println(movie.getTitle());
-        }
+
+//        //output the titles of the movies
+//        for (int i=0; i < movieList.size(); i++) {
+//            Collections.sort(movieList, Movie.categorySort);
+//            Collections.sort(movieList, Movie.titleSort);
+//            System.out.println(movieList.get(i).getCategory() + ", " + movieList.get(i).getTitle());
+//        }
+
+//        //enhanced for-loop to output the titles of all movies
+//        for(Movie movie : movieList) {
+//            System.out.println(movie.getTitle());
+//        }
+
+
     }
 }
