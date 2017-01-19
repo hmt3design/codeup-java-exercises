@@ -6,37 +6,32 @@ import java.util.Scanner;
  */
 public class RPSGameApp {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        Validator validator = new Validator(scan);
+        Scanner scan = new Scanner( System.in );
+        Validator validator = new Validator( scan );
         String player1;
 
-        System.out.println("Jun Ken Po, a.k.a. Rock Paper Scissors");
-        System.out.println("Your name, please? ");
+        System.out.println( "Jun Ken Po, a.k.a. Rock Paper Scissors" );
+        System.out.println( "Your name, please? " );
         player1 = scan.nextLine();
-        startGame(player1);
+        startGame( player1 );
     }
 
     public static void startGame(String player1) {
-        Scanner scan = new Scanner(System.in);
-        Validator validator = new Validator(scan);
+        Scanner scan = new Scanner( System.in );
+        Validator validator = new Validator( scan );
         Random random = new Random();
         String player1Turn;
-        String computer1 = "";
+        String computer1;
         int computerTurn;
 
-        System.out.println("Using R)Rock, P)Paper or S)Scissors, make a selection:");
+        // Select option RPS
+        System.out.println( "Using R)Rock, P)Paper or S)Scissors, make a selection:" );
         player1Turn = scan.nextLine();
-        player1Turn = player1Turn.toUpperCase();
+        player1Turn = Roshambo.fromString( player1Turn.toUpperCase() ).toString();
 
         // Generate computer turn
-        computerTurn = random.nextInt(3)+1;
-        if (computerTurn == 1) {
-            computer1 = "R";
-        } else if (computerTurn == 2) {
-            computer1 = "P";
-        } else if (computerTurn == 3) {
-            computer1 = "S";
-        }
+        computerTurn = random.nextInt( 3 ) + 1;
+        computer1 = Roshambo.fromNumber( computerTurn ).toString();
 
         // Determine the winner
         if (player1Turn.equals(computer1)) {
@@ -61,7 +56,7 @@ public class RPSGameApp {
                 System.out.println("Rock breaks scissors. Computer wins");
         }
         else
-            System.out.println("Invalid user input.");
+            System.out.println("Not a valid option.");
         if (validator.playAgain() == true) {
             startGame(player1);
         } else System.out.println("Thank you for playing!");
