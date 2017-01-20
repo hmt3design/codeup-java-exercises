@@ -1,10 +1,10 @@
+import Validator.Validator;
+
 import java.util.Scanner;
 
 /**
  * Created by Harry on 1/10/17.
  */
-
-import java.util.Scanner;
 
 public class ValidatorTestApp {
     public static void main(String[] args) {
