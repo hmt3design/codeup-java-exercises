@@ -4,19 +4,21 @@ package AlligatorsSheep;
 
 public class CountTestApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         System.out.println("Counting alligators...\n");
 
-        int count = 3;
         CountUtil countUtil = new CountUtil();
         Alligator alligator = new Alligator();
-        countUtil.count(alligator, count);
+        countUtil.count(alligator, 3);
 
         System.out.println("Counting sheep...\n");
-        int sheepCount = 2;
-        Sheep sheep = new Sheep();
-        countUtil.count(sheep, sheepCount);
+        Sheep blackie = new Sheep("Blackie");
+        countUtil.count(blackie, 2);
 
+        Sheep dolly = (Sheep) blackie.clone();
+        dolly.setName("Dolly");
+        countUtil.count(dolly, 3);
+        countUtil.count(blackie,1);
 
     }
 }

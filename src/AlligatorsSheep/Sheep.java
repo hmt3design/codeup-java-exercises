@@ -3,11 +3,15 @@ package AlligatorsSheep;
 /*** Created by Harry on 1/20/17.*/
 
 public class Sheep implements Countable, Cloneable {
-    private int count;
+    private int count = 0;
     private String setSheepName;
 
+    public Sheep(String setSheepName) {
+        this.setSheepName = setSheepName;
+    }
+
     public Sheep() {
-        this.count = 1;
+        this.count = 0;
     }
 
     @Override
@@ -17,7 +21,7 @@ public class Sheep implements Countable, Cloneable {
 
     @Override
     public void resetCount() {
-        count = 1;
+        count = 0;
     }
 
     @Override
@@ -40,6 +44,9 @@ public class Sheep implements Countable, Cloneable {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
+//        if (!(this instanceof Cloneable)) {
+//            throw new CloneNotSupportedException();
+//        }
         return super.clone();
     }
 

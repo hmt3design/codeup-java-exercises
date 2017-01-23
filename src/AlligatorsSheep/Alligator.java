@@ -3,7 +3,7 @@ package AlligatorsSheep;
 /*** Created by Harry on 1/20/17.*/
 
 public class Alligator implements Countable {
-    private int count;
+    private int count = 0;
 
     public Alligator() {
         this.count = 1;
